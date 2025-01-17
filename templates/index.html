@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Detection</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background: url('/static/11910.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .prediction-box {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 10px;
+      text-align: center; /* Center the content horizontally */
+      display: inline-block;
+    }
+    .prediction-box img {
+      display: block;
+      margin: 0 auto; /* Center the image horizontally */
+      width: 100%; /* Make the image fill the width of its container */
+      max-width: 400px; /* Limit the maximum width of the image */
+      height: auto; /* Maintain the aspect ratio */
+    }
+    .form-control {
+      width: 500px; /* Decrease the width of the form control */
+    }
+    .form-group label {
+      font-size: 18px; /* Increase font size of the label */
+      color: white; /* Set text color to white */
+      background-color: black; /* Set black background for text */
+      padding: 5px 10px; /* Add padding to the label */
+      border-radius: 5px; /* Add border radius to the label */
+    }
+    .btn-success {
+      width: 150px; /* Decrease button width */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <br><br>
+
+  <h1 class="jumbotron bg-primary">Aerial Image Classification </h1>
+
+  <br><br>
+  <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">
+        Upload Your Image :
+      </label>
+      <div class="col-sm-10">          
+        <input type="file" class="form-control" placeholder="Hours Studied"  name="my_image" id="pwd">
+      </div>
+    </div>
+
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  {% if prediction %}
+  <div class="prediction-box">
+    <img src="{{img_path}}" height="400px" width="400px">
+    <h2> Prediction :  {{prediction}}</h2>
+  </div>
+  {% endif %}
+
+</div>
+
+</body>
+</html>
