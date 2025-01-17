@@ -14,11 +14,6 @@ This project is an aerial image classification application using a Convolutional
 - NumPy
 - Matplotlib
 
-You can install the required packages using:
-
-```sh
-pip install -r requirements.txt
-```
 
 Clone the repository:
 ```sh
